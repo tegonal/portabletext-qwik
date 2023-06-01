@@ -7,7 +7,7 @@ mostly based on [@portabletext/react](https://github.com/portabletext/react-port
 
 In a nutshell:
 
-- Same custom components, just `components$` instead of `components` ;)
+- Same custom components, just `component$` instead of `React.FC` ;)
 - Same handling of marks, lists, etc.
 
 Thanks to the Portable Text team for the great work.
@@ -24,15 +24,20 @@ npm i @tegonal/portabletext-qwik
 import {PortableText, PortableTextQwikComponents} from '@tegonal/portabletext-qwik';
 import {component$} from "@builder.io/qwik";
 import {components} from "../my-components";
+import {PortableTextBlock} from "@portabletext/types";
 
 type Props = {
-  blocks: PortableTextQwikComponents;
+  blocks: PortableTextBlock[];
 }
 
-const QwikComponent = component$<Props>((blocks) => {
+const components: PortableTextQwikComponents = {
+  // Add your custom components here, just like in React
+}
+
+const QwikComponent = component$<Props>(({blocks}) => {
   return (
     <PortableText
-      value={props.value}
+      value={blocks}
       components={components}
     />
   )
