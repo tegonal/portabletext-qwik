@@ -21,7 +21,7 @@ npm i @tegonal/portabletext-qwik
 ## Usage
 
 ```tsx
-import {PortableText, PortableTextQwikComponents} from '@tegonal/portabletext-qwik';
+import {PortableText, PortableTextCustomComponents} from '@tegonal/portabletext-qwik';
 import {component$} from "@builder.io/qwik";
 import {components} from "../my-components";
 import {PortableTextBlock} from "@portabletext/types";
@@ -30,8 +30,8 @@ type Props = {
   blocks: PortableTextBlock[];
 }
 
-const components: PortableTextQwikComponents = {
-  // Add your custom components here, just like in React
+const components: PortableTextCustomComponents = {
+  // Add your custom Qwik components here
 }
 
 const QwikComponent = component$<Props>(({blocks}) => {
@@ -43,7 +43,6 @@ const QwikComponent = component$<Props>(({blocks}) => {
   )
 });
 ```
-The only difference between this and the React serializer is that you need to provide Qwik components instead of React components.
 
 ## Demo / Example usage
 

@@ -7,7 +7,9 @@ import type {
   PortableTextListItemType,
   TypedObject,
 } from '@portabletext/types';
-import type { Component, JSXChildren } from '@builder.io/qwik';
+import type { Component } from '@builder.io/qwik';
+
+export type PortableTextCustomComponents = Partial<PortableTextQwikComponents>;
 
 /**
  * Properties for the Portable Text Qwik component
@@ -23,13 +25,13 @@ export interface PortableTextProps<
   value: B | B[];
 
   /**
-   * React components to use for rendering
+   * Qwik components to use for rendering
    */
-  components?: Partial<PortableTextQwikComponents>;
+  components?: PortableTextCustomComponents;
 
   /**
    * Function to call when encountering unknown unknown types, eg blocks, marks,
-   * block style, list styles without an associated React component.
+   * block style, list styles without an associated Qwik component.
    *
    * Will print a warning message to the console by default.
    * Pass `false` to disable.
@@ -45,22 +47,22 @@ export interface PortableTextProps<
 export type PortableTextComponent<N> = Component<PortableTextComponentProps<N>>;
 
 /**
- * React component type for rendering portable text blocks (paragraphs, headings, blockquotes etc)
+ * Qwik component type for rendering portable text blocks (paragraphs, headings, blockquotes etc)
  */
 export type PortableTextBlockComponent = PortableTextComponent<PortableTextBlock>;
 
 /**
- * React component type for rendering (virtual, not part of the spec) portable text lists
+ * Qwik component type for rendering (virtual, not part of the spec) portable text lists
  */
-export type PortableTextListComponent = PortableTextComponent<ReactPortableTextList>;
+export type PortableTextListComponent = PortableTextComponent<QwikPortableTextList>;
 
 /**
- * React component type for rendering portable text list items
+ * Qwik component type for rendering portable text list items
  */
 export type PortableTextListItemComponent = PortableTextComponent<PortableTextListItemBlock>;
 
 /**
- * React component type for rendering portable text marks and/or decorators
+ * Qwik component type for rendering portable text marks and/or decorators
  *
  * @template M The mark type we expect
  */
@@ -73,69 +75,69 @@ export type PortableTextTypeComponent<V extends TypedObject = any> = Component<
 >;
 
 /**
- * Object defining the different React components to use for rendering various aspects
+ * Object defining the different Qwik components to use for rendering various aspects
  * of Portable Text and user-provided types, where only the overrides needs to be provided.
  */
 export type PortableTextComponents = Partial<PortableTextQwikComponents>;
 
 /**
- * Object definining the different React components to use for rendering various aspects
+ * Object definining the different Qwik components to use for rendering various aspects
  * of Portable Text and user-provided types.
  */
 export interface PortableTextQwikComponents {
   /**
-   * Object of React components that renders different types of objects that might appear
+   * Object of Qwik components that renders different types of objects that might appear
    * both as part of the blocks array, or as inline objects _inside_ of a block,
    * alongside text spans.
    *
    * Use the `isInline` property to check whether or not this is an inline object or a block
    *
-   * The object has the shape `{typeName: ReactComponent}`, where `typeName` is the value set
+   * The object has the shape `{typeName: QwikComponent}`, where `typeName` is the value set
    * in individual `_type` attributes.
    */
   types: Record<string, PortableTextTypeComponent | undefined>;
 
   /**
-   * Object of React components that renders different types of marks that might appear in spans.
+   * Object of Qwik components that renders different types of marks that might appear in spans.
    *
-   * The object has the shape `{markName: ReactComponent}`, where `markName` is the value set
+   * The object has the shape `{markName: QwikComponent}`, where `markName` is the value set
    * in individual `_type` attributes, values being stored in the parent blocks `markDefs`.
    */
   marks: Record<string, PortableTextMarkComponent | undefined>;
 
   /**
-   * Object of React components that renders blocks with different `style` properties.
+   * Object of Qwik components that renders blocks with different `style` properties.
    *
-   * The object has the shape `{styleName: ReactComponent}`, where `styleName` is the value set
+   * The object has the shape `{styleName: QwikComponent}`, where `styleName` is the value set
    * in individual `style` attributes on blocks.
    *
-   * Can also be set to a single React component, which would handle block styles of _any_ type.
+   * Can also be set to a single Qwik component, which would handle block styles of _any_ type.
    */
   block:
     | Record<PortableTextBlockStyle, PortableTextBlockComponent | undefined>
     | PortableTextBlockComponent;
 
   /**
-   * Object of React components used to render lists of different types (bulleted vs numbered,
+   * Object of Qwik components used to render lists of different types (bulleted vs numbered,
    * for instance, which by default is `<ul>` and `<ol>`, respectively)
    *
    * There is no actual "list" node type in the Portable Text specification, but a series of
    * list item blocks with the same `level` and `listItem` properties will be grouped into a
    * virtual one inside of this library.
    *
-   * Can also be set to a single React component, which would handle lists of _any_ type.
+   * Can also be set to a single Qwik component, which would handle lists of _any_ type.
    */
   list:
     | Record<PortableTextListItemType, PortableTextListComponent | undefined>
     | PortableTextListComponent;
 
   /**
-   * Object of React components used to render different list item styles.
+   * Object of Qwik components used to render different list item styles.
    *
-   * The object has the shape `{listItemType: ReactComponent}`, where `listItemType` is the value
+   * The object has the shape `{listItemType: QwikComponent}`, where `listItemType` is the value
    * set in individual `listItem` attributes on blocks.
    *
-   * Can also be set to a single React component, which would handle list items of _any_ type.
+   * Can also be set to a single Qwik component, which would handle list items of _any_ type.
    */
   listItem:
     | Record<PortableTextListItemType, PortableTextListItemComponent | undefined>
@@ -148,31 +150,31 @@ export interface PortableTextQwikComponents {
   hardBreak: Component<{}> | false;
 
   /**
-   * React component used when encountering a mark type there is no registered component for
+   * Qwik component used when encountering a mark type there is no registered component for
    * in the `components.marks` prop.
    */
   unknownMark: PortableTextMarkComponent;
 
   /**
-   * React component used when encountering an object type there is no registered component for
+   * Qwik component used when encountering an object type there is no registered component for
    * in the `components.types` prop.
    */
   unknownType: PortableTextComponent<UnknownNodeType>;
 
   /**
-   * React component used when encountering a block style there is no registered component for
+   * Qwik component used when encountering a block style there is no registered component for
    * in the `components.block` prop. Only used if `components.block` is an object.
    */
   unknownBlockStyle: PortableTextComponent<PortableTextBlock>;
 
   /**
-   * React component used when encountering a list style there is no registered component for
+   * Qwik component used when encountering a list style there is no registered component for
    * in the `components.list` prop. Only used if `components.list` is an object.
    */
-  unknownList: PortableTextComponent<ReactPortableTextList>;
+  unknownList: PortableTextComponent<QwikPortableTextList>;
 
   /**
-   * React component used when encountering a list item style there is no registered component for
+   * Qwik component used when encountering a list item style there is no registered component for
    * in the `components.listItem` prop. Only used if `components.listItem` is an object.
    */
   unknownListItem: PortableTextComponent<PortableTextListItemBlock>;
@@ -225,7 +227,7 @@ export interface PortableTextMarkComponentProps<M extends TypedObject = Arbitrar
   text: string;
 
   /**
-   * Key for this mark. The same key can be used amongst multiple text spans within the same block, so don't rely on this for React keys.
+   * Key for this mark. The same key can be used amongst multiple text spans within the same block, so don't rely on this for Qwik keys.
    */
   markKey?: string;
 
@@ -235,9 +237,9 @@ export interface PortableTextMarkComponentProps<M extends TypedObject = Arbitrar
   markType: string;
 
   /**
-   * React child nodes of this mark
+   * Qwik child nodes of this mark
    */
-  // TODO: This should be `children: ReactNode` but that breaks the type system
+  // TODO: This should be `children: QwikNode` but that breaks the type system
   children?: any | any[];
 }
 
@@ -246,12 +248,6 @@ export interface PortableTextMarkComponentProps<M extends TypedObject = Arbitrar
  * but we don't know anything about its other properties
  */
 export type UnknownNodeType = { [key: string]: unknown; _type: string } | TypedObject;
-
-/**
- * Function that renders any node that might appear in a portable text array or block,
- * including virtual "toolkit"-nodes like lists and nested spans
- */
-export type NodeRenderer = <T extends TypedObject>(options: Serializable<T>) => JSXChildren;
 
 export type NodeType = 'block' | 'mark' | 'blockStyle' | 'listStyle' | 'listItemStyle';
 
@@ -281,10 +277,10 @@ export interface SerializedBlock {
  * A virtual "list" node for Portable Text - not strictly part of Portable Text,
  * but generated by this library to ease the rendering of lists in HTML etc
  */
-export type ReactPortableTextList = ToolkitPortableTextList;
+export type QwikPortableTextList = ToolkitPortableTextList;
 
 /**
  * A virtual "list item" node for Portable Text - not strictly any different from a
  * regular Portable Text Block, but we can guarantee that it has a `listItem` property.
  */
-export type ReactPortableTextListItem = ToolkitPortableTextListItem;
+export type QwikPortableTextListItem = ToolkitPortableTextListItem;

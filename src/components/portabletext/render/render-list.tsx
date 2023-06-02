@@ -2,13 +2,13 @@ import { component$ } from '@builder.io/qwik';
 import {
   MissingComponentHandler,
   PortableTextQwikComponents,
-  ReactPortableTextList,
+  QwikPortableTextList,
 } from '../types';
 import { unknownListStyleWarning } from '../warnings';
 import { RenderBlock } from '../portable-text';
 
 type Props = {
-  node: ReactPortableTextList;
+  node: QwikPortableTextList;
   index: number;
   key: string;
   components: PortableTextQwikComponents;

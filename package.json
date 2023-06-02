@@ -1,28 +1,29 @@
 {
   "name": "@tegonal/portabletext-qwik",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A portable text component for Qwik",
   "author": "Oliver Studer <oliver.studer@tegonal.com> (https://tegonal.com)",
-  "main": "./lib/index.qwik.mjs",
-  "qwik": "./lib/index.qwik.mjs",
-  "types": "./lib-types/index.d.ts",
+  "main": "./dist/index.mjs",
+  "qwik": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url":
-    "https://github.com/tegonal/portabletext-qwik"
+    "url": "https://github.com/tegonal/portabletext-qwik"
   },
-  "keywords": ["portabletext", "qwik", "component"],
+  "keywords": [
+    "portabletext",
+    "qwik",
+    "component"
+  ],
   "exports": {
     ".": {
-      "import": "./lib/index.qwik.mjs",
-      "require": "./lib/index.qwik.cjs",
-      "types": "./lib-types/index.d.ts"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
-    "lib",
-    "lib-types"
+    "dist"
   ],
   "engines": {
     "node": ">=16.0.0"
@@ -32,7 +33,7 @@
   "scripts": {
     "build": "qwik build",
     "build.lib": "vite build --mode lib",
-    "build.types": "tsc --emitDeclarationOnly",
+    "build.types": "",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
@@ -62,7 +63,8 @@
     "tailwindcss": "^3.3.1",
     "typescript": "5.0.4",
     "undici": "5.22.1",
-    "vite": "4.3.5"
+    "vite": "4.3.5",
+    "vite-plugin-dts": "^2.3.0"
   },
   "dependencies": {
     "@portabletext/toolkit": "^2.0.1",
