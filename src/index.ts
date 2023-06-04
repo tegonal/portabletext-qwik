@@ -1,2 +1,10 @@
 export { PortableText } from './components/portabletext/portable-text';
-export type { PortableTextCustomComponents } from './components/portabletext/types';
+export type {
+  PortableTextCustomComponents,
+  PortableTextComponent,
+  PortableTextBlockComponent,
+  PortableTextListComponent,
+  PortableTextListItemComponent,
+  PortableTextMarkComponent,
+  PortableTextTypeComponent,
+} from './components/portabletext/types';

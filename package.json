@@ -1,6 +1,6 @@
 {
   "name": "@tegonal/portabletext-qwik",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A portable text component for Qwik",
   "author": "Oliver Studer <oliver.studer@tegonal.com> (https://tegonal.com)",
   "main": "./dist/index.mjs",
