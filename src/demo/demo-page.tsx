@@ -7,6 +7,7 @@ import { TermDefinition } from './components/TermDefinition';
 import { Link } from './components/Link';
 import { PortableTextComponents } from '../components/portabletext/types';
 import { SchnauzerList } from './components/SchnauzerList';
+import { portableTextToPlaintext } from '../components/portabletext/to-plaintext';
 
 // Some examples of custom components
 const components: PortableTextComponents = {
@@ -24,8 +25,12 @@ const components: PortableTextComponents = {
 export const DemoPage = component$(() => {
   return (
     <>
-      <div class={'prose mx-auto mt-5 lg:container'}>
+      <div class={'prose mx-auto mt-8 lg:container'}>
         <PortableText value={blocks} components={components} />
+      </div>
+      <div class={'prose mx-auto mt-8 lg:container'}>
+        <h2>Plaintext</h2>
+        <p>{portableTextToPlaintext({ value: blocks })}</p>
       </div>
       <div id={'portals'}></div>
     </>
