@@ -3,8 +3,8 @@
   "version": "1.0.4",
   "description": "A portable text component for Qwik",
   "author": "Oliver Studer <oliver.studer@tegonal.com> (https://tegonal.com)",
-  "main": "./dist/index.mjs",
-  "qwik": "./dist/index.mjs",
+  "main": "./dist/index.qwik.mjs",
+  "qwik": "./dist/index.qwik.mjs",
   "types": "./dist/index.d.ts",
   "license": "MIT",
   "repository": {
@@ -18,8 +18,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.qwik.mjs",
+      "require": "./dist/index.qwik.cjs"
     }
   },
   "files": [
