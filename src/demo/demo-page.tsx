@@ -5,7 +5,7 @@ import { SpeechSynthesisComponent } from './components/SpeechSynthesis';
 import { CharacterReference } from './components/CharacterReference';
 import { TermDefinition } from './components/TermDefinition';
 import { Link } from './components/Link';
-import { PortableTextComponents } from '../components/portabletext/types';
+import type { PortableTextComponents } from '../components/portabletext/types';
 import { SchnauzerList } from './components/SchnauzerList';
 import { portableTextToPlaintext } from '../components/portabletext/to-plaintext';
 

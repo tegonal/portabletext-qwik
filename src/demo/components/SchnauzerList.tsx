@@ -1,4 +1,4 @@
-import { PortableTextListComponent } from '../../components/portabletext/types';
+import type { PortableTextListComponent } from '../../components/portabletext/types';
 import { component$, Slot } from '@builder.io/qwik';
 
 const size = 14;

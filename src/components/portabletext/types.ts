@@ -17,7 +17,7 @@ export type PortableTextCustomComponents = Partial<PortableTextQwikComponents>;
  * @template B Types that can appear in the array of blocks
  */
 export interface PortableTextProps<
-  B extends TypedObject = PortableTextBlock | ArbitraryTypedObject
+  B extends TypedObject = PortableTextBlock | ArbitraryTypedObject,
 > {
   /**
    * One or more blocks to render

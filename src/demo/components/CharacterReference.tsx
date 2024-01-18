@@ -1,5 +1,5 @@
-import { component$, render, Slot, useVisibleTask$ } from '@builder.io/qwik';
-import { PortableTextMarkComponent } from '../../components/portabletext/types';
+import { $, component$, render, Slot, useOnWindow } from '@builder.io/qwik';
+import type { PortableTextMarkComponent } from '../../components/portabletext/types';
 
 interface CharacterDefinition {
   name: string;
@@ -28,7 +28,7 @@ const CharacterCard = component$<CharacterDefinition>(({ name, image, descriptio
     <div>
       <div class={'avatar'}>
         <div class={'w-24 rounded-full'}>
-          <img alt={name} color="magenta" src={image} width={'24px'} height={'24px'} />
+          <img alt={name} src={image} width={'24'} height={'24'} />
         </div>
       </div>
       <div>
@@ -75,21 +75,24 @@ export const CharacterReference: PortableTextMarkComponent<CharacterReferenceMar
       );
     }
 
-    useVisibleTask$(async () => {
-      const portal = document.getElementById('portals');
-      if (!portal) {
-        return;
-      }
-      await render(
-        portal,
-        <Modal>
-          <CharacterCard {...data} />
-        </Modal>
-      );
-    });
+    useOnWindow(
+      'DOMContentLoaded',
+      $(async () => {
+        const portal = document.getElementById('portals');
+        if (!portal) {
+          return;
+        }
+        await render(
+          portal,
+          <Modal>
+            <CharacterCard {...data} />
+          </Modal>
+        );
+      })
+    );
 
     return (
-      <label for="my-modal" class="btn-primary btn-sm btn whitespace-nowrap">
+      <label for="my-modal" class="btn btn-primary btn-sm whitespace-nowrap">
         <Slot />
       </label>
     );

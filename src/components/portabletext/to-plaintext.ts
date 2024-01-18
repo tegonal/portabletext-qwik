@@ -1,4 +1,4 @@
-import { PortableTextProps } from './types';
+import type { PortableTextProps } from './types';
 
 // Credit: https://www.sanity.io/schemas/portable-text-to-plain-text-cc845843
 // https://www.sanity.io/exchange/community/rexxars

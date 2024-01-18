@@ -1,4 +1,4 @@
-import { PortableTextMarkComponent } from '../../components/portabletext/types';
+import type { PortableTextMarkComponent } from '../../components/portabletext/types';
 import { component$, Slot } from '@builder.io/qwik';
 
 interface DefinitionMark {
@@ -9,7 +9,7 @@ interface DefinitionMark {
 export const TermDefinition: PortableTextMarkComponent<DefinitionMark> = component$(({ value }) => {
   return (
     <span class="tooltip" data-tip={value?.details}>
-      <span class="badge-primary badge">
+      <span class="badge badge-primary">
         <Slot />
       </span>
     </span>

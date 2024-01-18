@@ -24,15 +24,16 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Editor
-!.vscode/extensions.json
-.idea
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+!.vscode/extensions.json
+
 
 # Yarn
 .yarn/*
 !.yarn/releases
+

@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik';
-import { PortableTextQwikComponents } from '../types';
-import { TypedObject } from '@portabletext/types/src';
+import type { PortableTextQwikComponents } from '../types';
+import type { TypedObject } from '@portabletext/types/src';
 
 type Props = {
   node: TypedObject;
@@ -11,5 +11,6 @@ type Props = {
 };
 export const RenderCustomBlock = component$<Props>(({ index, node, components, isInline, key }) => {
   const Node = components.types[node._type];
-  return Node ? <Node key={key} value={node} isInline={isInline} index={index} /> : null;
+  const _key = key || `${node._type}-${node._key}`;
+  return Node ? <Node key={_key} value={node} isInline={isInline} index={index} /> : null;
 });
