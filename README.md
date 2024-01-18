@@ -16,6 +16,7 @@ Thanks to the Portable Text team for the great work.
 
 ```sh
 npm i @tegonal/portabletext-qwik
+yarn add @tegonal/portabletext-qwik
 ```
 
 ## Usage
