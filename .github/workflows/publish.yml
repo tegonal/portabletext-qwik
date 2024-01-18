@@ -14,11 +14,11 @@ jobs:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
       - name: Install
-        uses: Borales/actions-yarn@v2.0.0
+        uses: Borales/actions-yarn@v4.2.0
         with:
           cmd: install
       - name: Build
-        uses: Borales/actions-yarn@v2.0.0
+        uses: Borales/actions-yarn@v4.2.0
         with:
           cmd: build
       - name: Publish package to NPM 🚀
