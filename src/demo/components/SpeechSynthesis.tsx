@@ -1,4 +1,4 @@
-import { PortableTextMarkComponent } from '../../components/portabletext/types';
+import type { PortableTextMarkComponent } from '../../components/portabletext/types';
 import { $, component$, Slot } from '@builder.io/qwik';
 
 interface SpeechSynthesisMark {
@@ -21,7 +21,7 @@ export const SpeechSynthesisComponent: PortableTextMarkComponent<SpeechSynthesis
     });
 
     return (
-      <button type="button" class={'btn-secondary btn-sm btn'} onClick$={handleSynthesis}>
+      <button type="button" class={'btn btn-secondary btn-sm'} onClick$={handleSynthesis}>
         <Slot />
       </button>
     );

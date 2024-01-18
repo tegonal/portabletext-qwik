@@ -1,6 +1,6 @@
 import { unknownTypeWarning } from '../warnings';
 import { component$, Slot } from '@builder.io/qwik';
-import { PortableTextMarkComponentProps, PortableTextQwikComponents } from '../types';
+import type { PortableTextMarkComponentProps, PortableTextQwikComponents } from '../types';
 
 const hidden = { display: 'none' };
 

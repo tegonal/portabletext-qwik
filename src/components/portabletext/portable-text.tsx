@@ -65,10 +65,11 @@ type RenderBlockProps = {
 };
 export const RenderBlock = component$<RenderBlockProps>(
   ({ node, key, components, index, isInline = false, handleMissingComponent }) => {
+    const _key = key || `${node._type}-${index}-${node._key}`;
     if (isPortableTextToolkitList(node)) {
       return (
         <RenderListComponent
-          key={key}
+          key={_key}
           node={node}
           components={components}
           index={index}
@@ -80,7 +81,7 @@ export const RenderBlock = component$<RenderBlockProps>(
     if (isPortableTextListItemBlock(node)) {
       return (
         <RenderListItemComponent
-          key={key}
+          key={_key}
           node={node}
           components={components}
           index={index}
@@ -92,7 +93,7 @@ export const RenderBlock = component$<RenderBlockProps>(
     if (isPortableTextBlock(node)) {
       return (
         <RenderPortableTextBlockComponent
-          key={key}
+          key={_key}
           node={node}
           components={components}
           index={index}
@@ -105,7 +106,7 @@ export const RenderBlock = component$<RenderBlockProps>(
     if (isPortableTextToolkitSpan(node)) {
       return (
         <RenderSpanBlockComponent
-          key={key}
+          key={_key}
           node={node}
           components={components}
           handleMissingComponent={handleMissingComponent}
@@ -124,7 +125,7 @@ export const RenderBlock = component$<RenderBlockProps>(
     if (hasCustomComponentForNode(node, components)) {
       return (
         <RenderCustomBlock
-          key={key}
+          key={_key}
           node={node}
           components={components}
           index={index}
@@ -147,6 +148,6 @@ export const RenderBlock = component$<RenderBlockProps>(
     });
 
     const UnknownType = components.unknownType;
-    return <UnknownType key={node._key} {...nodeOptions} />;
+    return <UnknownType key={_key} {...nodeOptions} />;
   }
 );

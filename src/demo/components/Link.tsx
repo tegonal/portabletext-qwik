@@ -1,5 +1,5 @@
 import { component$, Slot } from '@builder.io/qwik';
-import { PortableTextMarkComponent } from '../../components/portabletext/types';
+import type { PortableTextMarkComponent } from '../../components/portabletext/types';
 
 interface LinkMark {
   _type: 'link';

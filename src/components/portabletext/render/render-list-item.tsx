@@ -1,9 +1,9 @@
 import { component$ } from '@builder.io/qwik';
 import { serializeBlock } from '../utils/serialize-block';
-import { MissingComponentHandler, PortableTextQwikComponents } from '../types';
+import type { MissingComponentHandler, PortableTextQwikComponents } from '../types';
 import { unknownListItemStyleWarning } from '../warnings';
 import { RenderBlock } from '../portable-text';
-import {
+import type {
   PortableTextListItemBlock,
   PortableTextMarkDefinition,
   PortableTextSpan,
@@ -17,11 +17,12 @@ type Props = {
   handleMissingComponent: MissingComponentHandler;
 };
 export const RenderListItemComponent = component$<Props>(
-  ({ node, components, index, handleMissingComponent }) => {
+  ({ node, components, key, index, handleMissingComponent }) => {
     const tree = serializeBlock({ node, index, isInline: false });
     const renderer = components.listItem;
     const handler = typeof renderer === 'function' ? renderer : renderer[node.listItem];
     const ListItemHandler = handler || components.unknownListItem;
+    const _key = key || `${node._type}-${node.level}-${node._key}`;
 
     if (ListItemHandler === components.unknownListItem) {
       const style = node.listItem || 'bullet';
@@ -34,7 +35,6 @@ export const RenderListItemComponent = component$<Props>(
     return (
       <ListItemHandler value={node} index={index} isInline={false}>
         {tree.children?.map((child) => {
-          const key = node._key || `node-${index}`;
           if (node.style && node.style !== 'normal') {
             // Wrap any other style in whatever the block serializer says to use
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -43,7 +43,7 @@ export const RenderListItemComponent = component$<Props>(
             return (
               <RenderBlock
                 index={index}
-                key={key}
+                key={`${_key}-${child._key}`}
                 node={blockNode}
                 components={components}
                 handleMissingComponent={handleMissingComponent}
@@ -53,7 +53,7 @@ export const RenderListItemComponent = component$<Props>(
           return (
             <RenderBlock
               index={index}
-              key={key}
+              key={`${_key}-${child._key}`}
               node={child.node}
               components={components}
               handleMissingComponent={handleMissingComponent}

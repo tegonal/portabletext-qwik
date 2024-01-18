@@ -1,6 +1,6 @@
 import type { PortableTextBlock } from '@portabletext/types';
 import { buildMarksTree } from '@portabletext/toolkit';
-import { Serializable, SerializedBlock } from '../types';
+import type { Serializable, SerializedBlock } from '../types';
 
 export function serializeBlock(options: Serializable<PortableTextBlock>): SerializedBlock {
   const { node, index, isInline } = options;

@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import {
+import type {
   MissingComponentHandler,
   PortableTextQwikComponents,
   QwikPortableTextList,
@@ -15,10 +15,11 @@ type Props = {
   handleMissingComponent: MissingComponentHandler;
 };
 export const RenderListComponent = component$<Props>(
-  ({ node, components, index, handleMissingComponent }) => {
+  ({ node, components, index, key, handleMissingComponent }) => {
     const component = components.list;
     const handler = typeof component === 'function' ? component : component[node.listItem];
     const ListHandlerComponent = handler || components.unknownList;
+    const _key = key || `${node._type}-${node.level}-${node._key}`;
 
     if (ListHandlerComponent === components.unknownList) {
       const style = node.listItem || 'bullet';
@@ -29,13 +30,13 @@ export const RenderListComponent = component$<Props>(
     }
 
     return (
-      <ListHandlerComponent key={`list-${index}`} value={node} index={index} isInline={false}>
+      <ListHandlerComponent key={_key} value={node} index={index} isInline={false}>
         {node.children?.map((child, childIndex) => (
           <RenderBlock
             index={childIndex}
             isInline={false}
-            key={`li-${index}-${childIndex}`}
-            node={child._key ? child : { ...child, _key: `li-${index}-${childIndex}` }}
+            key={_key}
+            node={child._key ? child : { ...child, _key: `${_key}-${childIndex}` }}
             components={components}
             handleMissingComponent={handleMissingComponent}
           />

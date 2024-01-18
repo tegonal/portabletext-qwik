@@ -1,6 +1,7 @@
 import { component$ } from '@builder.io/qwik';
-import { MissingComponentHandler, PortableTextQwikComponents } from '../types';
-import { spanToPlainText, ToolkitNestedPortableTextSpan } from '@portabletext/toolkit';
+import type { MissingComponentHandler, PortableTextQwikComponents } from '../types';
+import type { ToolkitNestedPortableTextSpan } from '@portabletext/toolkit';
+import { spanToPlainText } from '@portabletext/toolkit';
 import { unknownMarkWarning } from '../warnings';
 import { RenderBlock } from '../portable-text';
 
@@ -21,7 +22,7 @@ export const RenderSpanBlockComponent = component$<Props>(
 
     return (
       <SpanHandlerComponent
-        key={node._key}
+        key={node._key || `span-${markType}-${node._type}`}
         value={markDef}
         text={spanToPlainText(node)}
         markType={markType}
