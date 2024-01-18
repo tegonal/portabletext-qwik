@@ -1,7 +1,8 @@
-name: Publish to NPM
+name: Commit to main
 on:
-  release:
-    types: [created]
+  push: # Trigger the workflow on push events but only for the main branch
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +21,3 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
-      - name: Publish package to NPM 🚀
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
