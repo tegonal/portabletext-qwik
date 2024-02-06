@@ -790,7 +790,7 @@ __metadata:
     prettier-plugin-tailwindcss: "npm:^0.5.11"
     tailwindcss: "npm:^3.4.1"
     typescript: "npm:5.3.3"
-    undici: "npm:6.3.0"
+    undici: "npm:6.6.2"
     vite: "npm:5.0.11"
     vite-plugin-dts: "npm:^3.7.1"
   peerDependencies:
@@ -6737,12 +6737,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:6.3.0":
-  version: 6.3.0
-  resolution: "undici@npm:6.3.0"
+"undici@npm:6.6.2":
+  version: 6.6.2
+  resolution: "undici@npm:6.6.2"
   dependencies:
     "@fastify/busboy": "npm:^2.0.0"
-  checksum: dd532c3371b0a7b098ee7f0d6cdfb988fcf883059c4d3d72fa6eb858836dd039b5ff8ca207c10f9c93edc3fb0ba5e3f9a4f6982efc73e4c516076f59d6859417
+  checksum: c8c8a436059b13603f67ed4d917b4ba6d9ef282ac55c932c4790ee1a1c8cad1369da3c11b6e0b9df5a95ed1849cb98fa2f2310f6d0f9331dd359286c912497d2
   languageName: node
   linkType: hard
 
