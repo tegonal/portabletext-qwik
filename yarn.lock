@@ -2517,13 +2517,13 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-qwik@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "eslint-plugin-qwik@npm:1.4.0"
+  version: 1.4.5
+  resolution: "eslint-plugin-qwik@npm:1.4.5"
   dependencies:
     jsx-ast-utils: "npm:^3.3.5"
   peerDependencies:
     eslint: ^8.56.0
-  checksum: eff3456b2a82ab44b9988fecf9d62f3c3d948955a34c53bb32da30a10125df24ed1ce8480f3dec1ae70b3982bba664ea3d8b3506d4e4e73c5c099c651340774f
+  checksum: a3e42684c563868395a630b2e3c8eb8569fb2eea778ad8994b00d7a27d08c48ca6a0dafbb011c26afdc4c8173f97817c44881a659fdbb380a6b179c0c118eeab
   languageName: node
   linkType: hard
 
