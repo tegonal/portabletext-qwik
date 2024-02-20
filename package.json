@@ -1,6 +1,6 @@
 {
   "name": "@tegonal/portabletext-qwik",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A portable text component for Qwik",
   "author": "Oliver Studer <oliver.studer@tegonal.com> (https://tegonal.com)",
   "main": "./dist/index.qwik.mjs",
@@ -9,9 +9,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tegonal/portabletext-qwik"
+    "url": "git+https://github.com/tegonal/portabletext-qwik.git"
   },
   "keywords": [
+    "sanity.io",
     "portabletext",
     "qwik",
     "component"
@@ -38,40 +39,40 @@
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\" --fix",
-    "release": "np",
     "start": "vite --open --mode ssr",
     "qwik": "qwik",
     "clean": "git add . && git clean -xdf",
     "up": "yarn upgrade-interactive"
   },
-  "peerDependencies": {
-    "@builder.io/qwik": "1.4.0",
+  "dependencies": {
     "@portabletext/toolkit": "^2.0.10"
   },
+  "peerDependencies": {
+    "@builder.io/qwik": "1.4.0"
+  },
   "devDependencies": {
-    "@builder.io/qwik": "1.4.0",
+    "@builder.io/qwik": "1.4.5",
     "@portabletext/toolkit": "^2.0.10",
     "@portabletext/types": "^2.0.8",
     "@tailwindcss/typography": "^0.5.10",
     "@types/eslint": "8.56.2",
-    "@types/node": "^20.11.5",
-    "@typescript-eslint/eslint-plugin": "6.19.0",
-    "@typescript-eslint/parser": "6.19.0",
+    "@types/node": "^20.11.19",
+    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
     "autoprefixer": "^10.4.17",
-    "daisyui": "^4.6.0",
+    "daisyui": "^4.7.2",
     "eslint": "8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-qwik": "^1.4.0",
-    "np": "^9.2.0",
-    "postcss": "^8.4.33",
-    "prettier": "^3.2.4",
+    "eslint-plugin-qwik": "^1.4.5",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1",
     "typescript": "5.3.3",
-    "undici": "6.3.0",
-    "vite": "5.0.11",
-    "vite-plugin-dts": "^3.7.1"
+    "undici": "6.6.2",
+    "vite": "5.1.3",
+    "vite-plugin-dts": "^3.7.2"
   },
   "packageManager": "yarn@4.0.2"
 }
