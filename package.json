@@ -48,10 +48,10 @@
     "@portabletext/toolkit": "^2.0.10"
   },
   "peerDependencies": {
-    "@builder.io/qwik": "1.4.0"
+    "@builder.io/qwik": "1.9.1"
   },
   "devDependencies": {
-    "@builder.io/qwik": "1.4.5",
+    "@builder.io/qwik": "1.9.1",
     "@portabletext/toolkit": "^2.0.10",
     "@portabletext/types": "^2.0.8",
     "@tailwindcss/typography": "^0.5.10",
