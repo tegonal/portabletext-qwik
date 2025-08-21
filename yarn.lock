@@ -483,9 +483,9 @@ __metadata:
   linkType: hard
 
 "@portabletext/types@npm:^2.0.8":
-  version: 2.0.8
-  resolution: "@portabletext/types@npm:2.0.8"
-  checksum: cebb1c21dfaa85df07e7de12af6fcfa99c7be302a5f4e3ec01f6f95621501a72ac5d3f3c252f7b2514b1569fe8288c05b6aeb107811719f360c5830ec3171045
+  version: 2.0.15
+  resolution: "@portabletext/types@npm:2.0.15"
+  checksum: 383ca702340d69ba7355e2a02399c815d32f4e27b8d417aebfbd9bcd3fc49e5f15985f983913c1d0f3da8602297898e5704ed53f4adf5a446b9a3b132c25a8cb
   languageName: node
   linkType: hard
 
