@@ -1395,14 +1395,14 @@ __metadata:
   linkType: hard
 
 "daisyui@npm:^4.7.2":
-  version: 4.7.2
-  resolution: "daisyui@npm:4.7.2"
+  version: 4.12.24
+  resolution: "daisyui@npm:4.12.24"
   dependencies:
     css-selector-tokenizer: "npm:^0.8"
     culori: "npm:^3"
     picocolors: "npm:^1"
     postcss-js: "npm:^4"
-  checksum: 6aa0c206049943b0558a95a0d828f2179714fd92e3d01ccc9d3386c1d816bbec10efea010fb7876a4c1387354a69c1627193304f3c49ca8d6e9102d0eda25727
+  checksum: a5865e05b543965c21a934264da2c576f0760137344cb270e2d27183f03c9c51ae1b0af8ebe530fcd31ba4602711d57a5ddbf59c6c9461c53fdd73d53ed61375
   languageName: node
   linkType: hard
 
